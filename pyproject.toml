@@ -1,0 +1,41 @@
+[project]
+name = "try-flux"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Teppchan", email = "teppchan+github@github.com" }
+]
+dependencies = [
+    "diffusers>=0.30.0",
+    "accelerate>=0.33.0",
+    "sentencepiece>=0.2.0",
+    "protobuf>=5.27.3",
+    "transformers[deepspeed]>=4.44.2",
+    "torch==2.4.0+cu121",
+    "xformers>=0.0.27.post2",
+    "peft>=0.12.0",
+    "torchvision==0.19.0+cu121",
+    "bitsandbytes>=0.43.3",
+    "wandb>=0.17.7",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/try_flux"]
+
+[[tool.rye.sources]]
+name = "torch"
+url = "https://download.pytorch.org/whl/cu121"
+type = "index" 
